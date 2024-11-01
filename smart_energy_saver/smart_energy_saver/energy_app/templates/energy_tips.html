@@ -1,0 +1,24 @@
+<!-- energy_tips.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Tips</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Energy Saving Tips</h1>
+    <ul>
+        {% for tip in tips %}
+            <li>
+                <h2>{{ tip.title }}</h2>
+                <p>{{ tip.description }}</p>
+            </li>
+        {% empty %}
+            <li>No tips available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

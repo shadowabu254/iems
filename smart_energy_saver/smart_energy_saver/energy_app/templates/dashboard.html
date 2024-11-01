@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<h1>Hello world</h1>
+
+{% block content %}
+<div class="container">
+  <h2>Welcome, {{ user.username }}!</h2>
+  
+  <section>
+      <h3>Energy Consumption Overview</h3>
+      <p>Current Month's Usage: <strong>{{ current_month_usage }} kWh</strong></p>
+      <p>Average Daily Usage: <strong>{{ average_daily_usage }} kWh</strong></p>
+      <p>Yearly Comparison:</p>
+      <canvas id="yearlyConsumptionChart" width="400" height="200"></canvas>
+  </section>
+  
+  <section>
+      <h3>Energy Saving Tips</h3>
+      <ul>
+          <li>Turn off lights in unused rooms.</li>
+          <li>Use energy-efficient appliances.</li>
+          <li>Consider a programmable thermostat.</li>
+          <li>Seal windows and doors to prevent drafts.</li>
+          <li>Wash clothes in cold water whenever possible.</li>
+      </ul>
+  </section>
+  
+  <section>
+      <h3>Recent Activity</h3>
+      <p>Your recent actions:</p>
+      <ul>
+          <li>Updated profile on <strong>{{ profile_update_date }}</strong>.</li>
+          <li>Changed energy-saving settings on <strong>{{ settings_update_date }}</strong>.</li>
+      </ul>
+  </section>
+
+  <section>
+      <h3>Alerts & Notifications</h3>
+      <p>No alerts at this time. Keep saving energy!</p>
+  </section>
+</div>
+  <h2>Carbon Footprint</h2>
+  <p>Carbon Saved: {{ carbon_data.carbon_saved }} kg CO2</p>
+{% endblock %}

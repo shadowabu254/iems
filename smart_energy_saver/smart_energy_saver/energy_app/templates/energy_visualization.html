@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'energy_app/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+</head>
+<body>
+    <div class="container">
+      <p><a href="{% url 'dashboard' %}" style="font-size: 30px;">Back to Dashboard</a></p>
+        <h1>Data Visualization</h1>
+        <canvas id="myChart" width="300" height="200"></canvas> <!-- Canvas for the chart -->
+        
+        <script>
+            // Sample data for the chart
+            const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Energy Consumption (kWh)',
+                    data: [65, 59, 80, 81, 56, 55, 40], // Sample values
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'bar', // Type of chart
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        </script>
+
+        
+    </div>
+</body>
+</html>
